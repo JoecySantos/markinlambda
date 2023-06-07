@@ -1,18 +1,25 @@
 exports.handler = async (event) => {
     
     
-     var recebido = JSON.parse(event.body);
+    var recebido = JSON.parse(event.body);
      
-     console.log("usuario tentando entrar no sistema");
+    console.log("usuario tentando entrar no sistema");
     
     var alerta;
     
-    if (recebido.senha == 1313) {
+    if (recebido.senha == 1415) {
+        console.log("usuario com a senha correta");
         alerta = "logado com sucesso";
-         } else {
-             alerta = "não foi possivel logar"
-        
+    } else {
+        console.log("senha incorreta")
+        alerta = "não foi possivel logar"
     }
+             
+    if (recebido.senha == 1111) {
+        console.log("usuario administrador");
+        alerta = "usuario administrador";
+        }
+    
     var resposta = {
         "informações": recebido.login,
         "mensagem": alerta
